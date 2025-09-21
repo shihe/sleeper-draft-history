@@ -54,11 +54,11 @@ export async function fetchLeagueData(leagueId: string): Promise<TeamData[]> {
     fetchJson<SleeperDraft[]>(draftsUrl),
   ]);
 
-  const draft2024 = drafts.find(d => d.season === '2024' && d.status === 'complete');
+  const draft = drafts.find(d => d.status === 'complete');
   const draftPlayerRounds = new Map<string, number>();
 
-  if (draft2024) {
-    const draftPicksUrl = `https://api.sleeper.app/v1/draft/${draft2024.draft_id}/picks`;
+  if (draft) {
+    const draftPicksUrl = `https://api.sleeper.app/v1/draft/${draft.draft_id}/picks`;
     const draftPicks = await fetchJson<SleeperDraftPick[]>(draftPicksUrl);
     draftPicks.forEach(pick => {
       if (pick.player_id) {
@@ -108,7 +108,7 @@ export async function fetchLeagueData(leagueId: string): Promise<TeamData[]> {
           name: playerData.full_name || 'Unknown Player',
           position: playerData.position || 'N/A',
           team: playerData.team || 'FA',
-          draftRound2024: draftPlayerRounds.get(playerId),
+          draftRound: draftPlayerRounds.get(playerId),
         } : null;
       })
       .filter((p): p is Player => p !== null)

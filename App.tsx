@@ -53,7 +53,7 @@ export default function App(): React.ReactNode {
             </h1>
           </div>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            View final rosters, draft capital, and get an AI-powered analysis for any Sleeper fantasy football league.
+            View final rosters and draft capital for any Sleeper fantasy football league.
           </p>
         </header>
 

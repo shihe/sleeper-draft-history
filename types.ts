@@ -32,7 +32,7 @@ export interface Player {
   name: string;
   position: string;
   team: string | null;
-  draftRound2024?: number;
+  draftRound?: number;
 }
 
 export interface DraftPick {

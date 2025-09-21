@@ -24,12 +24,12 @@ export const PlayerItem: React.FC<PlayerItemProps> = ({ player }) => {
            {player.position}
          </span>
         <span className="font-medium text-slate-200 truncate">{player.name}</span>
-        {player.draftRound2024 && (
+        {player.draftRound && (
             <span
               className="flex-shrink-0 text-xs text-cyan-400/80 font-mono"
-              title={`2024 League Rookie Draft: Round ${player.draftRound2024}`}
+              title={`League Draft: Round ${player.draftRound}`}
             >
-              ('24 R{player.draftRound2024})
+              ('R{player.draftRound})
             </span>
         )}
       </div>
